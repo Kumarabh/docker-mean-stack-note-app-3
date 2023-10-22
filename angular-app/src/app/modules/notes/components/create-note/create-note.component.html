@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <div class="card card p-5 w-50 mx-auto mt-5">
+      <form [formGroup] = "notesForm" (submit)="onSubmit()">
+        <label for="title">Title</label> <br>
+        <input type="text" class="form-control" name="title" id="title" formControlName = "title"> <br>
+   
+        <label for="description">Description</label> <br>
+        <textarea class="form-control" name="description" formControlName = "description" id="description" cols="30" rows="5"></textarea>
+        
+        <button class="btn btn-default border mt-3 submit" type="submit">Create a note</button>
+     </form>
+    </div>
+</div>

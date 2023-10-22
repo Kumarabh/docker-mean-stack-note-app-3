@@ -1,0 +1,1 @@
+# ng g m modules/notes --route modules/notes --module app.module

@@ -1,0 +1,21 @@
+services:
+  angular-app:
+    image: angular-app
+    build: angular-app
+    ports:
+      - 80:80
+    links:
+     - node-app
+  node-app:
+    container_name: node-app-service
+    restart: always
+    build: node-app
+    ports:
+      - '3000:3000'
+    links:
+      - mongo
+  mongo:
+    container_name: mongo-app-service
+    image: mongo
+    ports:
+      - '27017:27017'
