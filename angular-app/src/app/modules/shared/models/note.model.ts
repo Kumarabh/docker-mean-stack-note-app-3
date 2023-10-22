@@ -11,3 +11,9 @@ export interface NoteApiResponse {
   error: any;
   success: boolean;
 }
+
+export interface SingleNoteApiResponse {
+  data: Note;
+  error: any;
+  success: boolean;
+}

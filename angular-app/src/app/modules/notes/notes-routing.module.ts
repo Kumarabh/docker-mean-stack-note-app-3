@@ -5,7 +5,7 @@ import { UpdateNoteComponent } from './components/update-note/update-note.compon
 
 const routes: Routes = [
   { path: '', component: NotesComponent },
-  { path: 'update', component: UpdateNoteComponent }
+  { path: 'update/:id', component: UpdateNoteComponent }
 ];
 
 @NgModule({

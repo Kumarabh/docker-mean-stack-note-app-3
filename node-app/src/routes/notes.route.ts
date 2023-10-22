@@ -5,10 +5,11 @@ const notesRouter = express.Router();
 notesRouter.route('/')
 .get(fetchNotes)
 .post(createNote)
+.put(updateNoteById)
+
 
 notesRouter.route('/:id')
 .get(fetchNotesById)
-.put(updateNoteById)
 .delete(deleteNoteById)
 
 export default notesRouter;

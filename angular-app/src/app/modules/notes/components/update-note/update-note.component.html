@@ -1,1 +1,16 @@
-<p>update-note works!</p>
+<h3 class="text-center">Update note</h3>
+<div class="container-fluid">
+  <div class="card card p-5 w-50 mx-auto mt-5">
+    <form [formGroup] = "notesForm" (submit)="updateNote()">
+      <label for="title">Title</label> <br>
+      <input type="text" class="form-control" name="title" id="title" formControlName = "title"> <br>
+ 
+      <label for="description">Description</label> <br>
+      <textarea class="form-control" name="description" formControlName = "description" id="description" cols="30" rows="5"></textarea>
+      
+      <button class="btn btn-default border mt-3 submit" type="submit" (click)="updateNote()">Update</button>
+      <a routerLink="/notes">See list of notes</a>
+
+   </form>
+  </div>
+</div>

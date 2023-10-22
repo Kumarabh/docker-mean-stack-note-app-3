@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Note, NoteApiResponse } from '../models/note.model';
+import { Note, NoteApiResponse, SingleNoteApiResponse } from '../models/note.model';
 import { HttpClient } from '@angular/common/http';
 import { baseUrl } from '../Common/api.constant';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -33,6 +33,16 @@ export class NotesService {
     return this.http.get<NoteApiResponse>(this.baseUrl.concat('notes'))
   }
 
+  fetchNoteById(params: string): Observable<SingleNoteApiResponse> {
+    const httpOptions = {
+      Headers: {
+        'content-type': 'application/json'
+      },
+      params: {}
+    }
+    return this.http.get<SingleNoteApiResponse>(this.baseUrl.concat('notes/', params))
+  }
+
   deleteNoteById(params: string): Observable<NoteApiResponse> {
     const httpOptions = {
       Headers: {
@@ -43,4 +53,13 @@ export class NotesService {
     return this.http.delete<NoteApiResponse>(this.baseUrl.concat('notes/', params), httpOptions);
   }
 
+  updateNote(note: Note): Observable<SingleNoteApiResponse> {
+    const httpOptions = {
+      Headers: {
+        'content-type': 'application/json'
+      },
+      params: { }
+    }
+    return this.http.put<SingleNoteApiResponse>(this.baseUrl.concat('notes/'), note, httpOptions);
+  }
 }
